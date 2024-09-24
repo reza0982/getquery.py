@@ -1,4 +1,3 @@
-GNU nano 8.0                                                                         query.py
 import asyncio
 import os
 import json
@@ -24,12 +23,13 @@ BOT_INFO_FILE = 'bot_information.json'  # File containing bot information
 DELAY = 5  # Delay between each request in seconds
 
 banner = """
-  ___________               .__              ____ ___                               
-  \_   _____/____    ____   |__| ____  __ __ |    |   \_____     ____   ______  _  __
-   |    __) \__  \  /    \  |  |/ ___\|  |  \|    |   /\__  \   / ___\ /  _ \ \/ \/ /
-   |     \   / __ \|   |  \ |  \  \___|  |  /|    |  /  / __ \_/ /_/  >  <_> )     / 
-   \___  /  (____  /___|  / |__|\___  >____/ |______/  (____  /\___  / \____/ \/\_/  
-       \/        \/     \/          \/                    \//_____/                
+  banner = """
+  __                .__                ___.                              
+_/  |_  ____ ______ |  |   ____   _____\_ |__   ____   ____  ___________ 
+\   __\/  _ \\____ \|  | _/ __ \ /  ___/| __ \ /  _ \_/ ___\/  _ \_  __ \
+ |  | (  <_> )  |_> >  |_\  ___/ \___ \ | \_\ (  <_> )  \__(  <_> )  | \/
+ |__|  \____/|   __/|____/\___  >____  >|___  /\____/ \___  >____/|__|   
+             |__|             \/     \/     \/            \/                
 
 Telegram Channel: https://t.me/JCAirdrops
 Telegram Group: https://t.me/jcairdropdiskusi
