@@ -22,8 +22,7 @@ SESSIONS_DIR = 'sessions/'  # Directory to store session files
 BOT_INFO_FILE = 'bot_information.json'  # File containing bot information
 DELAY = 5  # Delay between each request in seconds
 
-banner = """
-  banner = """
+ banner = """
   __                .__                ___.                              
 _/  |_  ____ ______ |  |   ____   _____\_ |__   ____   ____  ___________ 
 \   __\/  _ \\____ \|  | _/ __ \ /  ___/| __ \ /  _ \_/ ___\/  _ \_  __ \
