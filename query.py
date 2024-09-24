@@ -24,15 +24,15 @@ BOT_INFO_FILE = 'bot_information.json'  # File containing bot information
 DELAY = 5  # Delay between each request in seconds
 
 banner = """
-  _________                .__           __   ___________                            .___
- /   _____/  ____  _______ |__|______  _/  |_ \_   _____/_______   ____    ____    __| _/  ____    _____
- \_____  \ _/ ___\ \_  __ \|  |\____ \ \   __\ |    __)  \_  __ \_/ __ \ _/ __ \  / __ |  /  _ \  /     \
- /        \\  \___  |  | \/|  ||  |_> > |  |   |     \    |  | \/\  ___/ \  ___/ / /_/ | (  <_> )|  Y Y  |
-/_______  / \___  > |__|   |__||   __/  |__|   \___  /    |__|    \___  > \___  >\____ |  \____/ |__|_|  /
-        \/      \/             |__|                \/                 \/      \/      \/               \/
+  ___________               .__              ____ ___                               
+  \_   _____/____    ____   |__| ____  __ __ |    |   \_____     ____   ______  _  __
+   |    __) \__  \  /    \  |  |/ ___\|  |  \|    |   /\__  \   / ___\ /  _ \ \/ \/ /
+   |     \   / __ \|   |  \ |  \  \___|  |  /|    |  /  / __ \_/ /_/  >  <_> )     / 
+   \___  /  (____  /___|  / |__|\___  >____/ |______/  (____  /\___  / \____/ \/\_/  
+       \/        \/     \/          \/                    \//_____/                
 
-Telegram Channel: https://t.me/ScriptFreedom
-Telegram Group: https://t.me/ScriptFreedomGroup
+Telegram Channel: https://t.me/JCAirdrops
+Telegram Group: https://t.me/jcairdropdiskusi
 """
 
 options = """
