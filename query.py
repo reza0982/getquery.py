@@ -12,6 +12,10 @@ from pyrogram.errors import (
 )
 from pyrogram.raw.functions.messages import RequestWebView
 from dotenv import load_dotenv
+from colorama import Fore, Style, init  # Import colorama
+
+# Initialize colorama
+init(autoreset=True)
 
 # Load environment variables from .env file
 load_dotenv()
@@ -22,23 +26,25 @@ SESSIONS_DIR = 'sessions/'  # Directory to store session files
 BOT_INFO_FILE = 'bot_information.json'  # File containing bot information
 DELAY = 5  # Delay between each request in seconds
 
-banner = """
-  __                .__                ___.                              
-_/  |_  ____ ______ |  |   ____   _____\_ |__   ____   ____  ___________ 
-\   __\/  _ \\____ \|  | _/ __ \ /  ___/| __ \ /  _ \_/ ___\/  _ \_  __ \
- |  | (  <_> )  |_> >  |_\  ___/ \___ \ | \_\ (  <_> )  \__(  <_> )  | \/
- |__|  \____/|   __/|____/\___  >____  >|___  /\____/ \___  >____/|__|   
-             |__|             \/     \/     \/            \/                
+# Add color to the banner
+banner = f"""
+{Fore.CYAN}  __                .__                ___.                              
+{Fore.CYAN}_/  |_  ____ ______ |  |   ____   _____\\_ |__   ____   ____  ___________ 
+{Fore.CYAN}\\   __\\/  _ \\\\____ \\|  | _/ __ \\ /  ___/| __ \\ /  _ \\_/ ___\\/  _ \\_  __ \\
+ {Fore.CYAN}|  | (  <_> )  |_> >  |_\\  ___/ \\___ \\ | \\_\\ (  <_> )  \\__(  <_> )  | \\/
+ {Fore.CYAN}|__|  \\____/|   __/|____/\\___  >____  >|___  /\\____/ \\___  >____/|__|   
+             |__|             \\/     \\/     \\/            \\/                
 
-Telegram Channel: https://t.me/JCAirdrops
+{Fore.LIGHTBLUE_EX}Telegram Channel: https://t.me/JCAirdrops
 Telegram Group: https://t.me/jcairdropdiskusi
 """
 
-options = """
-Select an action:
+# Add color to the options
+options = f"""
+{Fore.GREEN}Select an action:
 
-    1. Create session
-    2. Run bot
+    {Fore.YELLOW}1. Create session
+    {Fore.YELLOW}2. Run bot
 """
 
 async def get_tg_web_data(tg_client: Client, session_name: str, bot_username: str, url: str) -> str:
@@ -47,7 +53,7 @@ async def get_tg_web_data(tg_client: Client, session_name: str, bot_username: st
             try:
                 await tg_client.connect()
             except (Unauthorized, UserDeactivated, AuthKeyUnregistered):
-                print(f"Invalid session: {session_name}")
+                print(f"{Fore.RED}Invalid session: {session_name}")
                 return None
 
         web_view = await tg_client.invoke(
@@ -70,7 +76,7 @@ async def get_tg_web_data(tg_client: Client, session_name: str, bot_username: st
         return tg_web_data
 
     except Exception as error:
-        print(f"{session_name} | Error while getting Tg Web Data: {error}")
+        print(f"{Fore.RED}{session_name} | Error while getting Tg Web Data: {error}")
         await asyncio.sleep(3)
         return None
 
@@ -92,9 +98,9 @@ async def process_session(session_file: str, bot_usernames: List[str], web_bot_u
                 file.write(f"{tg_web_data}\n")
 
             # Print the data to the terminal
-            print(f"Username: {session_name}, tg_web_data: {tg_web_data}")
+            print(f"{Fore.CYAN}Username: {session_name}, tg_web_data: {tg_web_data}")
         else:
-            print(f"Failed to retrieve tg_web_data for {bot_username}")
+            print(f"{Fore.RED}Failed to retrieve tg_web_data for {bot_username}")
 
         await asyncio.sleep(DELAY)
 
@@ -107,25 +113,25 @@ async def main():
     print(banner)
     print(options)
 
-    choice = input("Enter your choice (1/2): ").strip()
+    choice = input(f"{Fore.GREEN}Enter your choice (1/2): {Style.RESET_ALL}").strip()
 
     bot_info = read_bot_info(BOT_INFO_FILE)
     bot_usernames = [bot['username'] for bot in bot_info]
     web_bot_urls = [bot['url'] for bot in bot_info]
 
     if choice == '1':
-        phone_number = input("Enter your phone number (with country code): ").strip()
-        session_name = input("Enter a name for the new session: ").strip()
+        phone_number = input(f"{Fore.GREEN}Enter your phone number (with country code): {Style.RESET_ALL}").strip()
+        session_name = input(f"{Fore.GREEN}Enter a name for the new session: {Style.RESET_ALL}").strip()
         tg_client = Client(os.path.join(SESSIONS_DIR, session_name), api_id=API_ID, api_hash=API_HASH, phone_number=phone_number)
         await tg_client.start()
-        print(f"New session '{session_name}' created and logged in.")
+        print(f"{Fore.GREEN}New session '{session_name}' created and logged in.")
         await tg_client.stop()
     elif choice == '2':
-        print("Available bots:")
+        print(f"{Fore.GREEN}Available bots:")
         for i, bot_username in enumerate(bot_usernames, start=1):
-            print(f"{i}. {bot_username}")
+            print(f"{Fore.YELLOW}{i}. {bot_username}")
 
-        bot_choice = int(input("Select a bot by number: ").strip()) - 1
+        bot_choice = int(input(f"{Fore.GREEN}Select a bot by number: {Style.RESET_ALL}").strip()) - 1
         selected_bot_usernames = [bot_usernames[bot_choice]]
         selected_web_bot_urls = [web_bot_urls[bot_choice]]
 
@@ -133,7 +139,7 @@ async def main():
         for session_file in session_files:
             await process_session(session_file, selected_bot_usernames, selected_web_bot_urls)
     else:
-        print("Invalid choice. Please enter '1' or '2'.")
+        print(f"{Fore.RED}Invalid choice. Please enter '1' or '2'.")
 
 if __name__ == '__main__':
     asyncio.run(main())
