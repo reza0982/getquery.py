@@ -1,1 +1,1 @@
-# getquery.py bot ini membantu anda mendaoatkan query tgwebadata 
+# getquery.py bot ini membantu anda mendapatkan query tgwebappdata 
