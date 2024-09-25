@@ -1,8 +1,36 @@
 {
-  "bots": [
-    {
-      "username": "Binance_Moonbix_bot",
-      "url": "https://www.binance.com"
-    }
-  ]
+    "bots": [
+        {
+            "username": "",
+            "url": ""
+        },
+        {
+            "username": "BlumCryptoBot",
+            "url": "https://telegram.blum.codes"
+        },
+        {
+            "username": "",
+            "url": ""
+        },
+        {
+            "username": "",
+            "url": ""
+        },
+        {
+            "username": "",
+            "url": ""
+        },
+        {
+            "username": "",
+            "url": ""
+        },
+        {
+            "username": "",
+            "url": ""
+        },
+        {
+            "username": "",
+            "url": ""
+        }
+    ]
 }
