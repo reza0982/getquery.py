@@ -1,1 +1,1 @@
-# getquery.py bot ini membantu anda mendapatkan query tgwebappdata 
+# getquery.py thus repository for educational
